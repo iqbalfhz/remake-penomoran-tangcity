@@ -18,7 +18,7 @@ class AdminUserSeeder extends Seeder
             [
                 'name'          => 'Super Admin',
                 'username'      => 'admin',
-                'password'      => Hash::make('admin123'),
+                'password'      => Hash::make(env('ADMIN_PASSWORD', 'ChangeMe@2026!')),
                 'departemen_id' => $itDept?->id,
             ]
         );

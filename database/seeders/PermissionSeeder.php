@@ -28,8 +28,7 @@ class PermissionSeeder extends Seeder
         // Ambil semua permissions Shield yang sudah di-generate
         $allPermissions = Permission::all();
 
-        // super_admin mendapat semua permission (tampilan UI lengkap di Shield)
-        // Gate::before di AppServiceProvider juga sudah bypass semua check
+        // super_admin mendapat semua permission (akses penuh via database, tanpa bypass kode)
         $superAdminRole = Role::where('name', 'super_admin')->first();
         if ($superAdminRole) {
             $superAdminRole->syncPermissions($allPermissions);
