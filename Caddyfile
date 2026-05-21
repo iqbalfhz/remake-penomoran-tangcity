@@ -1,0 +1,37 @@
+﻿{
+    frankenphp
+    order php_server before file_server
+
+    # Disable auto HTTPS â€” SSL is terminated by Coolify/Traefik
+    auto_https off
+
+    # Disable admin API in production
+    admin off
+}
+
+:80 {
+    root * /app/public
+
+    # Compression (zstd > br > gzip, browser picks best)
+    encode zstd br gzip
+
+    # PHP application server
+    php_server {
+        # Resolve storage symlink correctly
+        resolve_root_symlink
+    }
+
+    # Static file serving
+    file_server
+
+    # Remove server identification
+    header -Server
+    header -X-Powered-By
+
+    # Structured JSON logs to stderr (captured by Docker/Coolify)
+    log {
+        output stderr
+        format json
+        level ERROR
+    }
+}

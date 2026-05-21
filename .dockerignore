@@ -1,0 +1,48 @@
+# Git
+.git/
+.github/
+.gitignore
+.gitattributes
+
+# Node
+node_modules/
+
+# PHP dependencies (installed fresh in Docker)
+vendor/
+
+# Environment files (injected by Coolify at runtime)
+.env
+.env.*
+!.env.example
+
+# Laravel generated/runtime files
+storage/framework/cache/
+storage/framework/sessions/
+storage/framework/testing/
+storage/framework/views/
+storage/logs/
+bootstrap/cache/
+
+# Frontend build output (built in node-builder stage)
+public/build/
+public/hot
+
+# Dev tools
+phpunit.xml
+.editorconfig
+.phpactor.json
+.php-cs-fixer.php
+
+# Docker files (not needed inside image)
+docker/
+Dockerfile
+.dockerignore
+
+# README and docs
+README.md
+*.md
+
+# IDE
+.idea/
+.vscode/
+*.swp
