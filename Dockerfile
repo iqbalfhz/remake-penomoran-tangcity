@@ -32,17 +32,15 @@ RUN apk add --no-cache \
     icu
 
 # Install required PHP extensions
+# opcache, mbstring, fileinfo already included in FrankenPHP base image
 RUN install-php-extensions \
     pdo_mysql \
-    opcache \
-    intl \
     zip \
     bcmath \
     gd \
-    mbstring \
     pcntl \
     exif \
-    fileinfo
+    intl
 
 # PHP performance config for production
 RUN { \
