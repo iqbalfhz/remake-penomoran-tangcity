@@ -24,8 +24,8 @@ export default defineConfig({
     build: {
         // Matikan source map di production agar kode asli tidak terekspos di DevTools
         sourcemap: false,
-        // Minify CSS & JS semaksimal mungkin
-        minify: "esbuild",
+        // Minify CSS & JS semaksimal mungkin (Vite 8 menggunakan Oxc/rolldown, bukan esbuild)
+        minify: "oxc",
         cssMinify: true,
     },
 });
