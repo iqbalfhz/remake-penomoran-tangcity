@@ -77,6 +77,9 @@ COPY . .
 # Copy built frontend assets from Stage 1
 COPY --from=node-builder /app/public/build ./public/build
 
+# Ensure bootstrap/cache exists before composer triggers artisan package:discover
+RUN mkdir -p bootstrap/cache
+
 # Finalise Composer autoloader
 RUN composer dump-autoload \
     --optimize \
