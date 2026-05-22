@@ -34,7 +34,6 @@ phpunit.xml
 .php-cs-fixer.php
 
 # Docker files (not needed inside image)
-docker/
 Dockerfile
 .dockerignore
 
